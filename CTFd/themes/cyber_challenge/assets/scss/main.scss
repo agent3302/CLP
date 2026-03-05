@@ -1,0 +1,189 @@
+@use "bootstrap/scss/bootstrap" as * with (
+  $info: #5c728f
+);
+
+@use "includes/components/table";
+@use "includes/components/jumbotron";
+@use "includes/components/challenge";
+@use "includes/components/sticky-footer";
+@use "includes/components/graphs";
+
+@use "includes/utils/fonts";
+@use "includes/utils/opacity";
+@use "includes/utils/min-height";
+@use "includes/utils/cursors";
+@use "includes/utils/lolight";
+
+@use "includes/icons/award-icons";
+@use "includes/icons/flag-icons";
+
+h1,
+h2 {
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+blockquote {
+  border-left: 4px solid $secondary;
+  padding-left: 15px;
+}
+
+input,
+select {
+  padding: 0.6rem !important;
+  height: auto !important;
+}
+
+.fa-spin.spinner {
+  text-align: center;
+  opacity: 0.5;
+}
+
+.badge-notification {
+  vertical-align: top;
+  margin-left: -1.5em;
+  font-size: 50%;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+  background-size: 8px 10px;
+}
+
+/* ============================= */
+/* ADVANCED CYBER GLITCH EFFECT */
+/* ============================= */
+
+.logo-container {
+  padding-top: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.cyber-logo {
+  position: relative;
+  max-width: 400px;
+  animation: glitchBurst 6s infinite;
+}
+
+/* RGB Shadow Layers */
+.cyber-logo::before,
+.cyber-logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.cyber-logo::before {
+  animation: glitchRed 6s infinite;
+}
+
+.cyber-logo::after {
+  animation: glitchBlue 6s infinite;
+}
+
+@keyframes glitchBurst {
+  0%, 92%, 100% {
+    transform: translate(0);
+    filter: none;
+  }
+
+  93% {
+    transform: translate(-4px, 2px);
+    filter: contrast(150%);
+  }
+
+  94% {
+    transform: translate(4px, -2px);
+  }
+
+  95% {
+    transform: translate(-2px, 1px);
+  }
+
+  96% {
+    transform: translate(2px, -1px);
+  }
+
+  97% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitchRed {
+  0%, 92%, 100% { opacity: 0; }
+  93% {
+    opacity: 0.7;
+    transform: translate(-5px, 0);
+    filter: drop-shadow(-5px 0 red);
+  }
+  96% { opacity: 0; }
+}
+
+@keyframes glitchBlue {
+  0%, 92%, 100% { opacity: 0; }
+  94% {
+    opacity: 0.7;
+    transform: translate(5px, 0);
+    filter: drop-shadow(5px 0 cyan);
+  }
+  97% { opacity: 0; }
+}
+
+/* ===== Learning Module Cyber Style ===== */
+
+.category-challenges .challenge-button {
+  background: rgba(10, 25, 40, 0.85);
+  border: 1px solid #00e6ff;
+  color: #00e6ff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 230, 255, 0.2);
+}
+
+.category-challenges .challenge-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(0, 230, 255, 0.5);
+}
+
+.category-challenges .challenge-button.challenge-solved {
+  background: rgba(0, 255, 150, 0.15);
+  border: 1px solid #00ff99;
+  color: #00ff99;
+  box-shadow: 0 0 12px rgba(0, 255, 150, 0.3);
+}
+
+/* ===== Video Background ===== */
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 10, 20, 0.80);
+  z-index: -1;
+}
+
+body {
+  background: transparent !important;
+}
